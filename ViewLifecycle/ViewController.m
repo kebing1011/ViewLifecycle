@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MyViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,22 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	self.view.backgroundColor = [UIColor whiteColor];
+	
+	self.title = @"ViewLifecycle";
+	
+	UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	button.bounds = CGRectMake(0, 0, 200, 100);
+	button.center = self.view.center;
+	[button setTitle:@"Push New Page" forState:UIControlStateNormal];
+	[button addTarget:self action:@selector(openPage:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:button];
+}
+- (void)openPage:(id)sender {
+	MyViewController* controller = [[MyViewController alloc] init];
+	controller.hidesBottomBarWhenPushed = YES;
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

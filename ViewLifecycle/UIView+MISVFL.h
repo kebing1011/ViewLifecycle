@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView_MISVFL : UIView
+@interface UIView(MISVFL)
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+									 views:(NSDictionary *)views;
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   options:(NSLayoutFormatOptions)options
+									 views:(NSDictionary *)views;
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   metrics:(NSDictionary *)metrics
+									 views:(NSDictionary *)views;
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   options:(NSLayoutFormatOptions)options
+								   metrics:(NSDictionary *)metrics
+									 views:(NSDictionary *)views;
 
 @end

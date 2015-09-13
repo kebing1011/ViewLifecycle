@@ -8,14 +8,41 @@
 
 #import "UIView+MISVFL.h"
 
-@implementation UIView_MISVFL
+@implementation UIView(MISVFL)
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+									 views:(NSDictionary *)views {
+	[self mis_addConstraintsWithVisualFormat:format
+									 options:0
+									 metrics:nil
+									   views:views];
 }
-*/
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   options:(NSLayoutFormatOptions)options
+									 views:(NSDictionary *)views {
+	[self mis_addConstraintsWithVisualFormat:format
+									 options:options
+									 metrics:nil
+									   views:views];
+}
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   metrics:(NSDictionary *)metrics
+									 views:(NSDictionary *)views {
+	[self mis_addConstraintsWithVisualFormat:format
+									 options:0
+									 metrics:metrics
+									   views:views];
+}
+
+- (void)mis_addConstraintsWithVisualFormat:(NSString *)format
+								   options:(NSLayoutFormatOptions)options
+								   metrics:(NSDictionary *)metrics
+									 views:(NSDictionary *)views {
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format options:options metrics:metrics views:views]];
+}
+
 
 @end
