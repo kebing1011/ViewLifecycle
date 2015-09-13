@@ -7,8 +7,7 @@
 //
 
 #define __LOG_FUNC__  printf("%s\n", __func__);
-
-#define __LOG_FUNC_FRAME(__FRAME) printf("%s, frame:{{%0.f, %0.f},{%0.f, %0.f}}\n", __func__, __FRAME.origin.x, __FRAME.origin.y, __FRAME.size.width, __FRAME.size.height);
+#define __LOG_FUNC_FRAME(__FRAME) printf("%s, frame:(%0.f, %0.f, %0.f, %0.f)\n", __func__, __FRAME.origin.x, __FRAME.origin.y, __FRAME.size.width, __FRAME.size.height);
 
 
 
@@ -150,13 +149,6 @@
 	self.view.backgroundColor = [UIColor lightGrayColor];
 	
 	__LOG_FUNC_FRAME(self.view.frame)
-}
-
-- (UIView *)view {
-	if (!_view) {
-		[self loadView];
-	}
-	return _view;
 }
 
 @end
